@@ -1,0 +1,375 @@
+/* ********************************* */
+/* RESETS */
+/* ********************************* */
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+/* ********************************* */
+/* GLOBAL STYLES */
+/* ********************************* */
+
+body {
+  font-family: "VT323", monospace;
+  color: #501944;
+  background: #1f0870;
+  background: linear-gradient(
+    #a0d32a 0%,
+    #80d375 87%,
+    #45ac0a 87%,
+    #92cd4d 88%,
+    #4b8600 89%,
+    #aa146c 89%,
+    #850c5c 90%,
+    #3f0010 96%,
+    #441f2a 100%
+  );
+  background-attachment: fixed;
+}
+
+.credit {
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: #443b0a;
+  text-align: center;
+}
+
+/* ********************************* */
+/* HEADER STYLES */
+/* ********************************* */
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.score-panel {
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  background-color: #8f3a5b;
+  border-radius: 15px;
+}
+
+.score-panel .stars,
+.score-panel .moves,
+.score-panel .clock,
+.score-panel .restart {
+  margin: 1em;
+  color: #189c4faf;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+.score-panel .stars img,
+.score-panel .moves img,
+.score-panel .clock img {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  padding: 2px;
+  vertical-align: middle;
+}
+
+.score-panel .restart i {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.8em;
+  vertical-align: middle;
+}
+
+/* ********************************* */
+/* CARDS STYLES */
+/* ********************************* */
+
+.deck {
+  border-radius: 5px;
+}
+
+.deck .card {
+  max-width: 100%;
+  max-height: 100%;
+  width: 150px;
+  height: 150px;
+  background-image: url(../img/images.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 4px 5px 0 rgba(141, 26, 26, 0.5);
+  box-shadow: 0 4px 5px 0 rgba(151, 12, 12, 0.5);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.deck .card img {
+  width: 50%;
+  display: none;
+}
+
+.deck .card.open {
+  cursor: default;
+  background: #ced7db;
+}
+
+.deck .card.show img {
+  display: block;
+}
+
+.deck .card.match {
+  cursor: default;
+  background: #d5d6da;
+}
+
+.deck .card.match img {
+  display: block;
+}
+
+/* ********************************* */
+/* MODAL POP UP STYLES */
+/* ********************************* */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(192, 37, 37, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #46c49a;
+  width: 65%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(212, 111, 111, 0.692), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation-name: animatetop;
+  animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  text-align: center;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  padding: 0.25em;
+  background-color: #e68c50;
+  color: #6e522e;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+}
+
+.modal-body {
+  padding: 1em 0.5em;
+  font-size: 1.2em;
+}
+
+.modal-footer {
+  padding: 1em;
+  background-color: #d18c5e;
+  color: #71e666;
+}
+
+.js-stars img {
+  width: 64px;
+  height: 64px;
+  padding: 5px;
+}
+
+.js-time,
+.js-moves {
+  font-weight: bold;
+  color: orange;
+}
+
+.js-restart {
+  padding: 10px 15px;
+  background-color: #2d72aa;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 1em;
+  color: #ffd700;
+  border: 0;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(46, 55, 73, 0.2);
+  box-shadow: 0 2px 5px 0 rgba(46, 55, 73, 0.2);
+}
+
+/* ********************************* */
+/* CSS GRID SUPPORT */
+/* ********************************* */
+
+@supports (display: grid) {
+  .container,
+  .deck {
+    display: -ms-grid;
+    display: grid;
+  }
+
+  .container {
+    -ms-grid-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin: 2em 10vw;
+  }
+
+  .deck {
+    margin: 0;
+    -ms-grid-columns: (1fr) [4];
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (1fr) [4];
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0.5em;
+    grid-auto-flow: dense;
+  }
+}
+
+/* ********************************* */
+/* MEDIA QUERIES */
+/* ********************************* */
+
+@media screen and (max-width: 1200px) {
+  .container {
+    -ms-grid-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr;
+    margin: 2em 2vw;
+  }
+
+  .deck .card {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .logo {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .container {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .score-panel {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 2em 0;
+  }
+
+  .deck {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .deck .card {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .deck .card {
+    width: 75px;
+    height: 75px;
+  }
+}

@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hafıza Oyunu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet prefetch">
+    <link rel="stylesheet" href="css/oyun.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            
+            <div class="score-panel">
+              <ul class="stars"></ul>
+              <div class="moves"></div>
+              <div class="clock"></div>
+              <div class="restart">
+                Tekrar oyna
+                <i class="fa fa-repeat"></i>
+              </div>
+            </div>
+        </header>
+
+        <ul class="deck"></ul>
+    </div>
+
+    <!-- GameWin Modal -->
+    <div class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Kazandın!</h2>
+        </div>
+        <div class="modal-body">
+          <p>Tebrikler :)</p>
+          <span class="js-stars"></span>
+          <p>Oyunu kazandın <span class="js-time"></span> Hemde sadece <span class="js-moves"></span>!</p>
+          <button class="js-restart">Tekrar oyna</button>
+        </div>
+        <div class="modal-footer">
+         
+        </div>
+      </div>
+
+    </div>
+
+    <script src="js/oyun.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+</body>
+</html>
